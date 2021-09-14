@@ -1,7 +1,8 @@
 
 let root = document.querySelector("#root");
 document.body.style.fontFamily= "Montserrat"
-let bgcolor= "white";
+document.body.style.backgroundColor= "gold"
+let bgcolor= "gold";
 let selectedImglink = "", blob_visible = false ;
 
 // Functions
@@ -14,7 +15,7 @@ const createImgButton = (text,link="") => {
     let btn= document.createElement("button");
     btn.textContent= text;
     btn.setAttribute('name',text)
-    btn.style.cssText = "border: 1.5px solid black; padding: 7px 10px; border-radius: 5px; background-color: transparent; margin-right: 12px";
+    btn.style.cssText = "border: 1.5px solid black; padding: 8px 12px; border-radius: 5px; background-color: transparent; margin-right: 12px; box-shadow: 2px 2px 3px #000; ";
     btn.classList.add("bgCheck")
     btn.addEventListener("click",changeImg)
     btn.addEventListener("click",changeButtonStyle)
@@ -65,7 +66,7 @@ const changeImg = (e) => {
     if(bg=="black")
     {   e.target.style.color = "white"
         right_div_img.setAttribute("src",imglinks[e.target.name]);
-        right_div_img.style.cssText= "width: 35%; z-index: 2"
+        right_div_img.style.cssText= "width: 29%; z-index: 2"
         selectedImglink = imglinks[e.target.name]
     }
     else
@@ -85,6 +86,7 @@ const changeButtonStyle = (e) => {
         {
             btn.style.backgroundColor = "transparent";
             btn.style.color = "black"; 
+            btn.style.boxShadow = ""
         }       
     }
 }
@@ -101,7 +103,7 @@ const changeBlobImg = (e) => {
        blob_img.setAttribute("id","blob")
        blob_img.style.cssText= "max-width: 49%; ";*/
        right_div.style.backgroundImage = "url('assets/images/blob.png')";
-       right_div.style.backgroundSize = "45%";
+       right_div.style.backgroundSize = "40%";
        right_div.style.backgroundRepeat= "no-repeat"
        right_div.style.backgroundPosition = "center"
        blob_visible= true;
@@ -124,30 +126,36 @@ const removeStyleOnMouseOver= (e) => {
     
 }  
 
+const removeCard = (e) => {
+ let card= e.target.parentElement ;
+ card.remove() ;
+}
+
 
 const createCard = () => {
     let card = document.createElement("div")
+    let card_close = document.createElement("input");
+    card_close.setAttribute("type","image");
+    card_close.setAttribute("src","assets/images/icon_delete.png");
+    card_close.addEventListener("click",removeCard);
     let card_h1= document.createElement("h1")
     card_h1.textContent= right_h1.textContent
     let card_div= document.createElement("div")
-
     let card_main_img= document.createElement("img")
     card_main_img.setAttribute("src",selectedImglink);
     card_main_img.style.cssText= "width: 40%; z-index: 2"
 
-    
+    createRelation(card, card_close,"width: 25px; align-self: flex-end; position: relative; top: -10px; left: 10px")
     createRelation(card, card_h1,"font-size: 3em; font-weight: 800; margin: 15px  ")
     createRelation(card_div,card_main_img);
 
-    createRelation(card,card_div,"display: flex; flex-direction: column; align-items:center; justify-content: center;  margin: 15px 10px; padding: 40px 20px;");
-    createRelation(dashboard,card,`width: 28%; border: 1px solid black; display: flex; flex-direction: column; justify-content: center; text-align: center; background-color: ${bgcolor}`);
+    createRelation(card,card_div,"display: flex; flex-direction: column; align-items:center; justify-content: center;  margin: 15px 10px; padding: 40px 20px;  min-height:150px; ");
+    createRelation(dashboard,card,`width: 28%; border: 1px solid black; display: flex; flex-direction: column;  text-align: center; background-color: ${bgcolor}; margin: 15px 20px ;box-shadow: 2px 2px 3px #000;`);
 
 
     if(blob_visible===true)
-    {  console.log("work")
-       card_div.style.cssText += "background-image: url('./assets/images/blob.png'); background-size: 55% ; background-position: center;background-repeat: no-repeat ";
-      
-       console.log(card_div.style.backgroundImage)
+    {  
+       card_div.style.cssText += "background-image: url('./assets/images/blob.png'); background-size: 55% ; background-position: center;background-repeat: no-repeat; ";
 
     } 
 }
@@ -162,8 +170,8 @@ let section= document.createElement("section");
 let left= document.createElement("div");
 let right= document.createElement("div");
 
-createRelation(section,left,"flex-basis: 40%;display: flex; flex-direction: column")
-createRelation(section,right,"display: flex; flex-direction: column; flex-basis: 35%; text-align: center;")
+createRelation(section,left,"flex-basis: 35%;display: flex; flex-direction: column")
+createRelation(section,right,"display: flex; flex-direction: column; flex-basis: 40%; text-align: center;")
 
 /*  Section - Left */
 let left_h2 = document.createElement("h2")
@@ -171,8 +179,8 @@ left_h2.textContent = "Sizzle your Life"
 let left_h1 = document.createElement("h1")
 left_h1.textContent = "Make a Card"
 
-createRelation(left,left_h2,"font-size: 1.5em; font-weight: lighter")
-createRelation(left,left_h1,"font-size: 2.5em; font-weight: 600; word-spacing: 0.2em")
+createRelation(left,left_h2,"font-size: 1.5em; font-weight: lighter; margin: 5px 0px")
+createRelation(left,left_h1,"font-size: 2.5em; font-weight: 600; word-spacing: 0.2em; margin: 5px 0px 15px;")
 
 // Section - left - image choice
 let img_choice= document.createElement("div");
@@ -187,7 +195,7 @@ createRelation(img_choice,tv);
 createRelation(img_choice,traitor);
 createRelation(img_choice,fallguy);
 createRelation(img_choice,radio);
-createRelation(left,img_choice,"display: flex; ")
+createRelation(left,img_choice,"display: flex; margin: 15px 0px 0px ")
 
 // Section - left - user input
 let user_choice= document.createElement("div");
@@ -221,16 +229,16 @@ radio_nope_label.textContent= "Nope"
 radio_blob.addEventListener("change", changeBlobImg)
 radio_nope.addEventListener("change",changeBlobImg)
 
-createRelation(bling_radio,radio_blob,"font-size: 0.6em; margin-right: 8px")
-createRelation(bling_radio,radio_blob_label,"margin-right: 10px")
-createRelation(bling_radio,radio_nope,"font-size: 0.6em; margin-right: 8px")
-createRelation(bling_radio,radio_nope_label,"margin-right: 5px")
+createRelation(bling_radio,radio_blob,"font-size: 0.3em; margin: 7px 8px 7px 12px; ")
+createRelation(bling_radio,radio_blob_label,"margin-right: 12px; ")
+createRelation(bling_radio,radio_nope,"font-size: 0.3em; margin: 7px 8px 7px 5px;")
+createRelation(bling_radio,radio_nope_label,"margin-right: 12px; ")
 
-createRelation(user_choice,bling_name,"border: 1.5px solid black; padding: 5px 10px; border-radius: 5px; background-color: black; margin-right: 12px; color: white; outline: none")
-createRelation(user_choice,bling_color,"border: 1.5px solid black; padding: 5px 10px; border-radius: 5px; background-color: black; margin-right: 12px; color: white; outline: none;")
-createRelation(user_choice,bling_radio,"border: 1.5px solid black; padding: 5px 10px; border-radius: 5px; background-color: black; margin-right: 12px; color: white; outline: none; font-size: 0.8em")
+createRelation(user_choice,bling_name,"border: 1.5px solid black; padding: 5px 10px; border-radius: 5px; background-color: black; margin-right: 12px; color: white; outline: none; box-shadow: 2px 2px 3px #000;")
+createRelation(user_choice,bling_color,"border: 1.5px solid black; padding: 5px 10px; border-radius: 5px; background-color: black; margin-right: 12px; color: white; outline: none; box-shadow: 2px 2px 3px #000;")
+createRelation(user_choice,bling_radio,"border: 1.5px solid black;  border-radius: 5px; background-color: black; margin-right: 12px; color: white; outline: none; font-size: 0.8em; box-shadow: 2px 2px 3px #000;padding: 3px 0px ")
 
-createRelation(left,user_choice,"display: flex")
+createRelation(left,user_choice,"display: flex; margin: 15px 0px;")
 
 
 // Section - left - capture
@@ -240,7 +248,7 @@ capture_inp.setAttribute("type","image");
 capture_inp.setAttribute("src","assets/images/camera.png");
 capture_inp.addEventListener("click",createCard);
 
-createRelation(capture_div,capture_inp,"max-width: 33px; border: 1.5px solid black; background-color: transparent; padding: 7px; border-radius: 5px")
+createRelation(capture_div,capture_inp,"max-width: 33px; border: 1.5px solid black; background-color: transparent; padding: 8px 7px; border-radius: 5px; box-shadow: 2px 2px 3px #000;")
 createRelation(left,capture_div,"background-color: transparent")
 
 /*  Section - Right */
@@ -251,7 +259,7 @@ let right_div_img= document.createElement("img")
 
 createRelation(right, right_h1,"font-size: 3em; font-weight: 800 ; display: none");
 createRelation(right_div,right_div_img,);
-createRelation(right,right_div,"display: flex; flex-direction: column; align-items:center; justify-content: center; padding: 50px; margin-top: 35px; height: 200px");
+createRelation(right,right_div,"display: flex; flex-direction: column; align-items:center; justify-content: center; padding: 30px; margin-top: 15px; height: 200px");
 
 /* Dashboard */
 let dashboard = document.createElement("div");
@@ -271,9 +279,9 @@ createRelation(footer,footer_ul,"display:flex; font-weight: bold")
 
 // Appending to root
 
-createRelation(root,title,"text-align:center; margin-top: 20px; font-weight: 700; font-size: 1.3em")
-createRelation(root,section,"display: flex; justify-content: space-evenly; margin: 50px auto")
+createRelation(root,title,"text-align:center; margin: 20px 0px; font-weight: 700; font-size: 1.3em; text-shadow: 3px 2px 0px #E6A519")
+createRelation(root,section,"display: flex; justify-content: space-evenly; margin: 50px auto; flex-wrap: wrap")
 createRelation(root,dashboard,"display: flex; flex-wrap: wrap; justify-content: space-around; width: 85%; margin: auto; ")
-createRelation(root,footer,"display: flex; justify-content: center; margin-top: 30px ; padding: 10px 0px")
+createRelation(root,footer,"display: flex; justify-content: center; margin: 30px 0px 10px ; padding: 10px 0px")
 
 
