@@ -4,7 +4,7 @@ document.body.style.fontFamily= "Montserrat"
 document.body.style.backgroundColor= "gold"
 let bgcolor= "gold";
 let selectedImglink = "", blob_visible = false ;
-
+let cardsize = "28%"
 // Functions
 const createRelation = (parent, child, styling= child.style.cssText) => {
     child.style.cssText = styling;
@@ -150,7 +150,7 @@ const createCard = () => {
     createRelation(card_div,card_main_img);
 
     createRelation(card,card_div,"display: flex; flex-direction: column; align-items:center; justify-content: center;  margin: 15px 5px; padding: 50px 20px;  min-height:180px; ");
-    createRelation(dashboard,card,`width: 28%; border: 2px solid black; display: flex; flex-direction: column;  text-align: center; background-color: ${bgcolor}; margin: 15px 20px ;box-shadow: 2px 2px 3px #000;`);
+    createRelation(dashboard,card,`width: ${cardsize}; border: 2px solid black; display: flex; flex-direction: column;  text-align: center; background-color: ${bgcolor}; margin: 15px 20px ;box-shadow: 2px 2px 3px #000;`);
 
 
     if(blob_visible===true)
@@ -171,7 +171,7 @@ let left= document.createElement("div");
 let right= document.createElement("div");
 
 createRelation(section,left,"max-width: 55%;display: flex; flex-direction: column")
-createRelation(section,right,"display: flex; flex-direction: column; flex-basis: 40%; text-align: center;")
+createRelation(section,right,"display: flex; flex-direction: column; width: 40%; text-align: center;")
 
 /*  Section - Left */
 let left_h2 = document.createElement("h2")
@@ -281,4 +281,46 @@ createRelation(root,section,"display: flex; justify-content: space-evenly; margi
 createRelation(root,dashboard,"display: flex; flex-wrap: wrap; justify-content: space-around; width: 85%; margin: auto; ")
 createRelation(root,footer,"display: flex; justify-content: center; margin: 30px 0px 10px ; padding: 10px 0px")
 
+//Media query 
+const mQuery1 = window.matchMedia('(min-width: 1025px)')
 
+function handleDesktopResize(e) {   
+   if (e.matches) {     
+        console.log(mQuery1)   
+        console.log('Media Desktop Matched!') 
+        left.style.maxWidth = "55%";
+        right.style.width  =  "40%";
+        right_div.style.padding = "50px 10px";
+        right_div_img.style.cssText= "width: 29%; z-index: 2";
+        right_div.style.backgroundSize = "43%";
+        cardsize = "28%"
+        let cards = dashboard.children;
+        for(let card of cards) 
+            card.style.width = cardsize;
+   } 
+} 
+
+// Set up event listener 
+mQuery1.addListener(handleDesktopResize);
+
+const mQuery2 = window.matchMedia('(min-width: 768px) and (max-width: 1024px)')
+
+function handleMobilePhoneResize(e) {   
+   if (e.matches) {     
+        console.log(mQuery2)   
+        console.log('Media Query Matched!') 
+        left.style.maxWidth = "68%";
+        right.style.width  =  "35%";
+        right_div.style.padding = "0px";
+        right_div_img.style.cssText= "width: 45%; z-index: 2";
+        right_div.style.backgroundSize = "70%";
+        cardsize = "40%"
+        let cards = dashboard.children;
+        for(let card of cards) 
+            card.style.width = cardsize;
+
+   } 
+} 
+
+// Set up event listener 
+mQuery2.addListener(handleMobilePhoneResize);
