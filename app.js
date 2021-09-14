@@ -86,7 +86,7 @@ const changeButtonStyle = (e) => {
         {
             btn.style.backgroundColor = "transparent";
             btn.style.color = "black"; 
-            btn.style.boxShadow = ""
+            btn.style.boxShadow = "2px 2px 3px #000;"
         }       
     }
 }
