@@ -103,7 +103,7 @@ const changeBlobImg = (e) => {
        blob_img.setAttribute("id","blob")
        blob_img.style.cssText= "max-width: 49%; ";*/
        right_div.style.backgroundImage = "url('assets/images/blob.png')";
-       right_div.style.backgroundSize = "47%";
+       right_div.style.backgroundSize = "43%";
        right_div.style.backgroundRepeat= "no-repeat"
        right_div.style.backgroundPosition = "center"
        blob_visible= true;
@@ -143,19 +143,19 @@ const createCard = () => {
     let card_div= document.createElement("div")
     let card_main_img= document.createElement("img")
     card_main_img.setAttribute("src",selectedImglink);
-    card_main_img.style.cssText= "width: 55%; z-index: 2"
+    card_main_img.style.cssText= "width: 52%; z-index: 2"
 
     createRelation(card, card_close,"width: 25px; align-self: flex-end; position: relative; top: -10px; left: 10px")
     createRelation(card, card_h1,"font-size: 3em; font-weight: 800; margin: 15px  ")
     createRelation(card_div,card_main_img);
 
-    createRelation(card,card_div,"display: flex; flex-direction: column; align-items:center; justify-content: center;  margin: 15px 5px; padding: 45px 20px;  min-height:150px; ");
+    createRelation(card,card_div,"display: flex; flex-direction: column; align-items:center; justify-content: center;  margin: 15px 5px; padding: 50px 20px;  min-height:180px; ");
     createRelation(dashboard,card,`width: 28%; border: 2px solid black; display: flex; flex-direction: column;  text-align: center; background-color: ${bgcolor}; margin: 15px 20px ;box-shadow: 2px 2px 3px #000;`);
 
 
     if(blob_visible===true)
     {  
-       card_div.style.cssText += "background-image: url('./assets/images/blob.png'); background-size: 75% ; background-position: center;background-repeat: no-repeat; ";
+       card_div.style.cssText += "background-image: url('./assets/images/blob.png'); background-size: 67% ; background-position: center;background-repeat: no-repeat; ";
 
     } 
 }
@@ -259,7 +259,7 @@ let right_div_img= document.createElement("img")
 
 createRelation(right, right_h1,"font-size: 3em; font-weight: 800 ; display: none");
 createRelation(right_div,right_div_img,);
-createRelation(right,right_div,"display: flex; flex-direction: column; align-items:center; justify-content: center; padding: 30px 0px; margin-top: 15px; height: 200px");
+createRelation(right,right_div,"display: flex; flex-direction: column; align-items:center; justify-content: center; padding: 50px 10px; margin-top: 20px; height: 200px");
 
 /* Dashboard */
 let dashboard = document.createElement("div");
@@ -269,7 +269,7 @@ let footer = document.createElement("footer");
 let footer_ul = document.createElement("ul");
 
 let li_credits = document.createElement("ul");
-li_credits.textContent= "Credits:"
+li_credits.textContent= "🖤 Credits:"
 
 createRelation(footer_ul,li_credits,"margin-right: 15px")
 addFooterLinks();
