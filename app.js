@@ -151,7 +151,7 @@ const createCard = () => {
     createRelation(card, card_h1,"font-size: 3em; font-weight: 800; margin: 15px  ")
     createRelation(card_div,card_main_img);
 
-    createRelation(card,card_div,"display: flex; flex-direction: column; align-items:center; justify-content: center;  margin: 15px 5px; padding: 50px 20px;  min-height:250px; ");
+    createRelation(card,card_div,"display: flex; flex-direction: column; align-items:center; justify-content: center;  margin: 15px 5px; padding: 50px 20px;  min-height:220px; ");
     createRelation(dashboard,card,`width: ${cardsize}; border: 2px solid black; display: flex; flex-direction: column;  text-align: center; background-color: ${bgcolor}; margin: 15px 20px ;box-shadow: 2px 2px 3px #000;`);
 
 
@@ -290,8 +290,12 @@ function handleDesktopResize(e) {
    if (e.matches) {     
         console.log(mQuery1)   
         console.log('Media Desktop Matched!') 
+        section.style.flexDirection = "row"
+        section.style.justifyContent = "space-evenly"
+        section.style.margin= "120px auto"
         left.style.maxWidth = "55%";
         right.style.width  =  "40%";
+        right.style.margin = "0px"
         right_div.style.padding = "50px 10px";
         right_div_img.style.cssText= "width: 29%; z-index: 2";
         right_div.style.backgroundSize = "43%";
@@ -306,10 +310,13 @@ mQuery1.addListener(handleDesktopResize);
 
 const mQuery2 = window.matchMedia('(min-width: 768px) and (max-width: 1024px)')
 
-function handleMobilePhoneResize(e) {   
+function handleTabletResize(e) {   
    if (e.matches) {     
         console.log(mQuery2)   
         console.log('Media Query Matched!') 
+        section.style.flexDirection = "row"
+        section.style.justifyContent = "space-evenly"
+        section.style.margin= "120px auto"
         left.style.maxWidth = "68%";
         right.style.width  =  "35%";
         right_div.style.padding = "0px";
@@ -322,6 +329,36 @@ function handleMobilePhoneResize(e) {
 
    } 
 } 
+ 
+mQuery2.addListener(handleTabletResize);
 
-// Set up event listener 
-mQuery2.addListener(handleMobilePhoneResize);
+const mQuery3 = window.matchMedia('(min-width: 481px) and (max-width: 767.5px)')
+
+function handleMobilePhoneResize(e) {   
+   if (e.matches) {     
+        console.log(mQuery3)   
+        console.log('Media Query Matched!') 
+        section.style.flexDirection = "column"
+        section.style.justifyContent = "center"
+        section.style.alignItems= "center"
+        section.style.margin= "50px auto"
+        section.style.flexWrap = "nowrap"
+        left.style.maxWidth = "95%";
+        right.style.width  =  "60%";
+        right.style.margin = "40px 0px 0px"
+        right_div.style.padding = "20px 5px";
+        right_div_img.style.cssText= "width: 37%; z-index: 2";
+        right_div.style.backgroundSize = "55%";
+        cardsize = "60%"
+        let cards = dashboard.children;
+        for(let card of cards) 
+            card.style.width = cardsize;
+
+   } 
+} 
+ 
+mQuery3.addListener(handleMobilePhoneResize);
+
+
+
+
