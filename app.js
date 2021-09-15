@@ -3,7 +3,7 @@ let root = document.querySelector("#root");
 document.body.style.fontFamily= "Montserrat"
 document.body.style.backgroundColor= "gold"
 let bgcolor= "gold";
-let selectedImglink = "", blob_visible = false ;
+let selectedImglink = "", blob_visible = false , heading= false;
 let cardsize = "28%"
 // Functions
 const createRelation = (parent, child, styling= child.style.cssText) => {
@@ -58,6 +58,7 @@ const imglinks= {
   "Radio" : "assets/images/radio-02.png"
 }
 const changeImg = (e) => {
+    heading=true;
     if(right_h1.style.display=="none") right_h1.style.display= "block";
     e.target.style.backgroundColor = e.target.style.backgroundColor === "black" ? "transparent" : "black";
 
@@ -82,7 +83,8 @@ const changeImg = (e) => {
 const changeButtonStyle = (e) => {
   let allImgButtons = document.getElementsByClassName("bgCheck")   
   for(let btn of allImgButtons )
-    {   if(btn.name!= e.target.name)
+    {   
+        if(btn.name!= e.target.name)
         {
             btn.style.backgroundColor = "transparent";
             btn.style.color = "black"; 
@@ -139,7 +141,7 @@ const createCard = () => {
     card_close.setAttribute("src","assets/images/icon_delete.png");
     card_close.addEventListener("click",removeCard);
     let card_h1= document.createElement("h1")
-    card_h1.textContent= right_h1.textContent
+    if (heading== true) card_h1.textContent= right_h1.textContent;
     let card_div= document.createElement("div")
     let card_main_img= document.createElement("img")
     card_main_img.setAttribute("src",selectedImglink);
@@ -149,7 +151,7 @@ const createCard = () => {
     createRelation(card, card_h1,"font-size: 3em; font-weight: 800; margin: 15px  ")
     createRelation(card_div,card_main_img);
 
-    createRelation(card,card_div,"display: flex; flex-direction: column; align-items:center; justify-content: center;  margin: 15px 5px; padding: 50px 20px;  min-height:180px; ");
+    createRelation(card,card_div,"display: flex; flex-direction: column; align-items:center; justify-content: center;  margin: 15px 5px; padding: 50px 20px;  min-height:250px; ");
     createRelation(dashboard,card,`width: ${cardsize}; border: 2px solid black; display: flex; flex-direction: column;  text-align: center; background-color: ${bgcolor}; margin: 15px 20px ;box-shadow: 2px 2px 3px #000;`);
 
 
@@ -277,7 +279,7 @@ createRelation(footer,footer_ul,"display:flex; font-weight: bold")
 
 // Appending to root
 createRelation(root,title,"text-align:center; margin: 30px 0px; font-weight: 700; font-size: 1.3em; text-shadow: 3px 2px 0px #E6A519")
-createRelation(root,section,"display: flex; justify-content: space-evenly; margin: 60px auto; flex-wrap: wrap")
+createRelation(root,section,"display: flex; justify-content: space-evenly; margin: 120px auto; flex-wrap: wrap")
 createRelation(root,dashboard,"display: flex; flex-wrap: wrap; justify-content: space-around; width: 85%; margin: auto; ")
 createRelation(root,footer,"display: flex; justify-content: center; margin: 30px 0px 10px ; padding: 10px 0px")
 
@@ -300,7 +302,6 @@ function handleDesktopResize(e) {
    } 
 } 
 
-// Set up event listener 
 mQuery1.addListener(handleDesktopResize);
 
 const mQuery2 = window.matchMedia('(min-width: 768px) and (max-width: 1024px)')
