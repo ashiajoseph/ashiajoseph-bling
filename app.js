@@ -198,7 +198,7 @@ left_h2.textContent = "Sizzle your Life"
 let left_h1 = document.createElement("h1")
 left_h1.textContent = "Make a Card"
 
-createRelation(left,left_h2,"font-size: 1.5em; font-weight: 300; margin: 5px 0px")
+createRelation(left,left_h2,"font-size: 1.65em; font-weight: 300; margin: 5px 0px")
 createRelation(left,left_h1,"font-size: 3.0em; font-weight: 700; word-spacing: 0.2em; margin: 5px 0px 15px;")
 
 // Section - left - image choice
