@@ -199,7 +199,7 @@ let left_h1 = document.createElement("h1")
 left_h1.textContent = "Make a Card"
 
 createRelation(left,left_h2,"font-size: 1.5em; font-weight: 300; margin: 5px 0px")
-createRelation(left,left_h1,"font-size: 2.5em; font-weight: 600; word-spacing: 0.2em; margin: 5px 0px 15px;")
+createRelation(left,left_h1,"font-size: 3.0em; font-weight: 700; word-spacing: 0.2em; margin: 5px 0px 15px;")
 
 // Section - left - image choice
 let img_choice= document.createElement("div");
@@ -278,7 +278,7 @@ right_h1.textContent= "Stuff"
 let right_div= document.createElement("div")
 let right_div_img= document.createElement("img")
 
-createRelation(right, right_h1,"font-size: 3em; font-weight: 800 ; display: none; overflow-wrap: break-word;");
+createRelation(right, right_h1,"font-size: 4em; font-weight: 800 ; display: none; overflow-wrap: break-word;");
 createRelation(right_div,right_div_img,);
 createRelation(right,right_div,"display: flex; flex-direction: column; align-items:center; justify-content: center;  min-height: 240px");
 
@@ -297,7 +297,7 @@ addFooterLinks();
 createRelation(footer,footer_ul,"display:flex; font-weight: bold; flex-wrap: wrap; margin: 10px 10px; max-width: 80%; justify-content: center")
 
 // Appending to root
-createRelation(root,title,"text-align:center; margin: 30px 0px; font-weight: 900; font-size: 1.3em; text-shadow: 3.5px 2.5px 0px #E6A519")
+createRelation(root,title,"text-align:center; margin: 30px 0px; font-weight: 900; font-size: 1.3em; text-shadow: 3.5px 2.5px 0px #E6A519; letter-spacing: 1px")
 createRelation(root,section,"display: flex; justify-content: space-evenly; margin: 90px 0px 10px; flex-wrap: wrap")
 createRelation(root,dashboard,"display: flex; flex-wrap: wrap; justify-content: center; width: 85%; margin: auto; ")
 createRelation(root,footer,"display: flex; justify-content: center; margin: 30px 0px 10px ; padding: 10px 0px; text-align: center")
