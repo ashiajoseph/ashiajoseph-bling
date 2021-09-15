@@ -153,7 +153,7 @@ const createCard = () => {
     card_main_img.style.cssText= "width: 46%; z-index: 2; padding: 8px 0px"
 
     createRelation(card, card_close,"width: 25px; align-self: flex-end; position: relative; top: -10px; left: 10px")
-    createRelation(card, card_h1,"font-size: 3em; font-weight: 800; margin: 15px;overflow-wrap: break-word;  ")
+    createRelation(card, card_h1,"font-size: 3.7em; font-weight: 800; margin: 15px;overflow-wrap: break-word;  ")
     createRelation(card_div,card_main_img);
 
     createRelation(card,card_div,"display: flex; flex-direction: column; align-items:center; justify-content: center;  margin: 15px 0px; padding: 40px 10px; min-height: 185px ");
@@ -278,7 +278,7 @@ right_h1.textContent= "Stuff"
 let right_div= document.createElement("div")
 let right_div_img= document.createElement("img")
 
-createRelation(right, right_h1,"font-size: 4em; font-weight: 800 ; display: none; overflow-wrap: break-word;");
+createRelation(right, right_h1,"font-size: 3.7em; font-weight: 800 ; display: none; overflow-wrap: break-word;");
 createRelation(right_div,right_div_img,);
 createRelation(right,right_div,"display: flex; flex-direction: column; align-items:center; justify-content: center;  min-height: 240px");
 
