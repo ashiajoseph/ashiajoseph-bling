@@ -48,8 +48,8 @@ const addFooterLinks = () => {
        createRelation(li,a);
        a.style.color = "black";
        a.style.textDecoration = "none";
-       createRelation(footer_ul,li)
-       li.style.marginRight = "15px"
+       createRelation(footer_ul,li);
+       li.style.marginRight = "15px";
        
     }
 }
@@ -57,7 +57,7 @@ const addFooterLinks = () => {
 // Event Handlers
 const changeText = (e) => { 
     heading= true;
-    right_h1.style.display = "block"
+    right_h1.style.display = "block";
     right_h1.textContent= e.target.value;
 }
 // Image Links - name : link
@@ -149,14 +149,14 @@ const removeCard = (e) => {
 
 
 const createCard = () => {
-    let card = document.createElement("div")
+    let card = document.createElement("div");
     let card_close = document.createElement("input");
     card_close.setAttribute("type","image");
     card_close.setAttribute("src","assets/images/icon_delete.png");
     card_close.addEventListener("click",removeCard);
-    let card_h1 = document.createElement("h1")
+    let card_h1 = document.createElement("h1");
     if (heading == true) card_h1.textContent= right_h1.textContent;
-    let card_div = document.createElement("div")
+    let card_div = document.createElement("div");
 
     let card_main_img = document.createElement("img");
     card_main_img.setAttribute("src",selectedImglink);
@@ -252,11 +252,11 @@ left_h1.style.wordSpacing = "0.2em";
 
 // Section - left - image choice
 let img_choice= document.createElement("div");
-let polaroid= createImgButton("Polaroid")
-let tv= createImgButton("TV")
-let traitor= createImgButton("Traitor")
-let fallguy= createImgButton("Fall Guy")
-let radio= createImgButton("Radio")
+let polaroid= createImgButton("Polaroid");
+let tv= createImgButton("TV");
+let traitor= createImgButton("Traitor");
+let fallguy= createImgButton("Fall Guy");
+let radio= createImgButton("Radio");
 
 createRelation(img_choice,polaroid);
 createRelation(img_choice,tv);
@@ -272,21 +272,21 @@ img_choice.style.flexWrap = "wrap";
 // Section - left - user input
 let user_choice= document.createElement("div");
 let bling_name= document.createElement("input");
-bling_name.setAttribute("type","text")
-bling_name.setAttribute("placeholder","Name your Bling!")
-bling_name.addEventListener("input",changeText)
+bling_name.setAttribute("type","text");
+bling_name.setAttribute("placeholder","Name your Bling!");
+bling_name.addEventListener("input",changeText);
 
 let bling_color= document.createElement("select");
-let colors= ["Gold","Snow","DodgerBlue","LightSalmon","LightCoral","LightPink","OrangeRed","Tomato","DarkOrchid","SpringGreen","Thistle"]
+let colors= ["Gold","Snow","DodgerBlue","LightSalmon","LightCoral","LightPink","OrangeRed","Tomato","DarkOrchid","SpringGreen","Thistle"];
 for(let color of colors)
-    addColors(color)
-bling_color.addEventListener("change", changeColor)
+    addColors(color);
+bling_color.addEventListener("change", changeColor);
 
 let bling_radio= document.createElement("div");
 let radio_blob= document.createElement("input");
-radio_blob.setAttribute("type","radio")
-radio_blob.setAttribute("name","radio_blob")
-radio_blob.setAttribute("value","blob")
+radio_blob.setAttribute("type","radio");
+radio_blob.setAttribute("name","radio_blob");
+radio_blob.setAttribute("value","blob");
 let radio_blob_label= document.createElement("label");
 radio_blob_label.textContent= "Blob";
 
@@ -294,22 +294,22 @@ radio_blob_label.textContent= "Blob";
 let radio_nope= document.createElement("input"); 
 radio_nope.setAttribute("type","radio");
 radio_nope.setAttribute("name","radio_blob");
-radio_nope.setAttribute("value","nope")
+radio_nope.setAttribute("value","nope");
 let radio_nope_label= document.createElement("label");
-radio_nope_label.textContent= "Nope"
+radio_nope_label.textContent= "Nope";
 
-radio_blob.addEventListener("change", changeBlobImg)
-radio_nope.addEventListener("change",changeBlobImg)
+radio_blob.addEventListener("change", changeBlobImg);
+radio_nope.addEventListener("change",changeBlobImg);
 
-createRelation(bling_radio,radio_blob)
+createRelation(bling_radio,radio_blob);
 radio_blob.style.fontSize = "0.3em";
 radio_blob.style.margin = "7px 8px 7px 12px";
-createRelation(bling_radio,radio_blob_label)
+createRelation(bling_radio,radio_blob_label);
 radio_blob_label.style.marginRight = "12px";
-createRelation(bling_radio,radio_nope)
+createRelation(bling_radio,radio_nope);
 radio_nope.style.fontSize = "0.3em";
 radio_nope.style.margin = "7px 8px 7px 5px";
-createRelation(bling_radio,radio_nope_label)
+createRelation(bling_radio,radio_nope_label);
 radio_nope_label.style.marginRight = "12px";
 
 createRelation(user_choice,bling_name);
@@ -349,7 +349,7 @@ bling_radio.style.maxHeight = "36px";
 bling_radio.style.marginTop = "15px";
 bling_radio.style.outline = "none";
 
-createRelation(left,user_choice)
+createRelation(left,user_choice);
 user_choice.style.display = "flex";
 user_choice.style.margin = "15px 0px 25px";
 user_choice.style.flexWrap = "wrap";
@@ -360,10 +360,10 @@ let capture_inp = document.createElement("input");
 capture_inp.setAttribute("type","image");
 capture_inp.setAttribute("src","assets/images/camera.png");
 capture_inp.addEventListener("click",createCard);
-capture_inp.addEventListener("mousedown",displayWhiteBg)
-capture_inp.addEventListener("mouseup",removeWhiteBg)
+capture_inp.addEventListener("mousedown",displayWhiteBg);
+capture_inp.addEventListener("mouseup",removeWhiteBg);
 
-createRelation(capture_div,capture_inp)
+createRelation(capture_div,capture_inp);
 capture_inp.style.maxWidth = "37px";
 capture_inp.style.border = "1.5px solid black";
 capture_inp.style.backgroundColor = "transparent";
@@ -375,10 +375,10 @@ createRelation(left,capture_div);
 capture_div.backgroundColor = "transparent";
 
 /*  Section - Right */
-let right_h1= document.createElement("h1")
-right_h1.textContent= "Stuff"
-let right_div= document.createElement("div")
-let right_div_img= document.createElement("img")
+let right_h1= document.createElement("h1");
+right_h1.textContent= "Stuff";
+let right_div= document.createElement("div");
+let right_div_img= document.createElement("img");
 
 createRelation(right, right_h1);
 right_h1.style.fontSize = "3.7em";
@@ -395,20 +395,20 @@ right_div.style.justifyContent = "center";
 right_div.style.minHeight = "240px";
 /* Dashboard */
 let dashboard = document.createElement("div");
-dashboard.setAttribute("id","dashboard")
+dashboard.setAttribute("id","dashboard");
 
 /* Footer */
 let footer = document.createElement("footer");
 let footer_ul = document.createElement("ul");
 
 let li_credits = document.createElement("li");
-li_credits.textContent= "🖤 Credits:"
+li_credits.textContent= "🖤 Credits:";
 
-createRelation(footer_ul,li_credits)
+createRelation(footer_ul,li_credits);
 li_credits.style.marginRight = "10px";
 addFooterLinks();
 
-createRelation(footer,footer_ul)
+createRelation(footer,footer_ul);
 footer_ul.style.display = "flex";
 footer_ul.style.fontWeight = "bold";
 footer_ul.style.flexWrap = "wrap";
@@ -425,7 +425,7 @@ title.style.fontSize = "1.5em";
 title.style.letterSpacing = "1px";
 title.style.margin = "30px 0px";
 
-createRelation(root,section)
+createRelation(root,section);
 section.style.display = "flex";
 section.style.justifyContent = "space-evenly";
 section.style.flexWrap = "wrap";
@@ -435,10 +435,10 @@ createRelation(root,dashboard);
 dashboard.style.display = "flex";
 dashboard.style.justifyContent = "center";
 dashboard.style.flexWrap = "wrap";
-dashboard.style.width = "85%"
+dashboard.style.width = "85%";
 dashboard.style.margin = "auto";
 
-createRelation(root,footer)
+createRelation(root,footer);
 footer.style.display = "flex";
 footer.style.justifyContent = "center";
 footer.style.margin = "50px 0px 10px";
