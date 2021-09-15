@@ -297,7 +297,7 @@ addFooterLinks();
 createRelation(footer,footer_ul,"display:flex; font-weight: bold; flex-wrap: wrap; margin: 10px 10px; max-width: 80%; justify-content: center")
 
 // Appending to root
-createRelation(root,title,"text-align:center; margin: 30px 0px; font-weight: 900; font-size: 1.3em; text-shadow: 3.5px 2.5px 0px #E6A519; letter-spacing: 1px")
+createRelation(root,title,"text-align:center; margin: 30px 0px; font-weight: 900; font-size: 1.5em; text-shadow: 3.5px 2.5px 0px #E6A519; letter-spacing: 1px")
 createRelation(root,section,"display: flex; justify-content: space-evenly; margin: 90px 0px 10px; flex-wrap: wrap")
 createRelation(root,dashboard,"display: flex; flex-wrap: wrap; justify-content: center; width: 85%; margin: auto; ")
 createRelation(root,footer,"display: flex; justify-content: center; margin: 30px 0px 10px ; padding: 10px 0px; text-align: center")
