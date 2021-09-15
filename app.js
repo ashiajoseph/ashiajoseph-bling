@@ -45,6 +45,7 @@ const addFooterLinks = () => {
 
 // Event Handlers
 const changeText = (e) => { 
+    heading= true;
     right_h1.style.display = "block"
     right_h1.textContent= e.target.value;
 }
@@ -141,13 +142,13 @@ const createCard = () => {
     let card_div= document.createElement("div")
     let card_main_img= document.createElement("img")
     card_main_img.setAttribute("src",selectedImglink);
-    card_main_img.style.cssText= "width: 46%; z-index: 2"
+    card_main_img.style.cssText= "width: 46%; z-index: 2; padding: 8px 0px"
 
     createRelation(card, card_close,"width: 25px; align-self: flex-end; position: relative; top: -10px; left: 10px")
-    createRelation(card, card_h1,"font-size: 3em; font-weight: 800; margin: 15px  ")
+    createRelation(card, card_h1,"font-size: 3em; font-weight: 800; margin: 15px;overflow-wrap: break-word;  ")
     createRelation(card_div,card_main_img);
 
-    createRelation(card,card_div,"display: flex; flex-direction: column; align-items:center; justify-content: center;  margin: 15px 0px; padding: 40px 10px; min-height: 165px ");
+    createRelation(card,card_div,"display: flex; flex-direction: column; align-items:center; justify-content: center;  margin: 15px 0px; padding: 40px 10px; min-height: 185px ");
     createRelation(dashboard,card,`width: ${cardsize}; border: 2px solid black; display: flex; flex-direction: column;  text-align: center; background-color: ${bgcolor}; margin: 15px 20px ;box-shadow: 2px 2px 3px #000;min-width:270px; min-height: 300px `);
 
 
@@ -255,7 +256,7 @@ right_h1.textContent= "Stuff"
 let right_div= document.createElement("div")
 let right_div_img= document.createElement("img")
 
-createRelation(right, right_h1,"font-size: 3em; font-weight: 800 ; display: none");
+createRelation(right, right_h1,"font-size: 3em; font-weight: 800 ; display: none; overflow-wrap: break-word;");
 createRelation(right_div,right_div_img,);
 createRelation(right,right_div,"display: flex; flex-direction: column; align-items:center; justify-content: center;  min-height: 240px");
 
@@ -276,7 +277,7 @@ createRelation(footer,footer_ul,"display:flex; font-weight: bold; flex-wrap: wra
 // Appending to root
 createRelation(root,title,"text-align:center; margin: 30px 0px; font-weight: 700; font-size: 1.3em; text-shadow: 3px 2px 0px #E6A519")
 createRelation(root,section,"display: flex; justify-content: space-evenly; margin: 90px 0px 10px; flex-wrap: wrap")
-createRelation(root,dashboard,"display: flex; flex-wrap: wrap; justify-content: space-around; width: 85%; margin: auto; ")
+createRelation(root,dashboard,"display: flex; flex-wrap: wrap; justify-content: center; width: 85%; margin: auto; ")
 createRelation(root,footer,"display: flex; justify-content: center; margin: 30px 0px 10px ; padding: 10px 0px; text-align: center")
 
 
